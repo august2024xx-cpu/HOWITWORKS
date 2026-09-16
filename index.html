@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pizza Coin — How It Works</title>
+
+<style>
+
+:root{
+    --green:#39ff14;
+    --dark:#020702;
+    --white:#ffffff;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    max-width:100%;
+    min-height:100%;
+    overflow-x:hidden;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            #123b0d 0,
+            #030903 45%,
+            #000 100%
+        );
+
+    color:white;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:14px;
+}
+
+.app{
+
+    width:100%;
+    max-width:1100px;
+    min-width:0;
+
+    text-align:center;
+
+    margin:auto;
+}
+
+
+/* ==============================
+   MAIN TITLE
+   ============================== */
+
+h1{
+
+    width:100%;
+
+    margin:
+        0
+        0
+        4px;
+
+    font-size:
+        clamp(
+            34px,
+            8vw,
+            72px
+        );
+
+    line-height:1.05;
+
+    font-weight:1000;
+
+    letter-spacing:2px;
+
+    color:var(--green);
+
+    text-shadow:
+        0 0 8px var(--green),
+        0 0 25px #0f0;
+
+    overflow-wrap:anywhere;
+}
+
+
+.subtitle{
+
+    width:100%;
+
+    font-size:
+        clamp(
+            18px,
+            4vw,
+            30px
+        );
+
+    line-height:1.15;
+
+    font-weight:900;
+
+    margin-bottom:14px;
+
+    overflow-wrap:anywhere;
+}
+
+
+/* ==============================
+   MAIN SCREEN
+   ============================== */
+
+.screen{
+
+    position:relative;
+
+    width:100%;
+    max-width:100%;
+    min-width:0;
+
+    min-height:650px;
+
+    border:
+        4px
+        solid
+        var(--green);
+
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #071207,
+            #010301
+        );
+
+    box-shadow:
+        0 0 15px var(--green),
+        inset 0 0 35px #0c260c;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:
+        30px
+        22px
+        105px;
+}
+
+
+/* ==============================
+   SLIDE
+   ============================== */
+
+.slide{
+
+    width:100%;
+
+    max-width:900px;
+
+    min-width:0;
+
+    margin:auto;
+
+    text-align:center;
+
+    animation:
+        pop
+        .28s
+        ease;
+
+    overflow:hidden;
+}
+
+@keyframes pop{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            scale(.96);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+/* ==============================
+   NUMBER CIRCLE
+   ============================== */
+
+.number{
+
+    display:inline-flex;
+
+    width:78px;
+    height:78px;
+
+    border-radius:50%;
+
+    align-items:center;
+    justify-content:center;
+
+    background:var(--green);
+
+    color:#000;
+
+    font-size:48px;
+
+    font-weight:1000;
+
+    box-shadow:
+        0 0 25px var(--green);
+
+    margin-bottom:18px;
+}
+
+
+/* ==============================
+   INSTRUCTION PICTURE FRAME
+   ============================== */
+
+.instruction-picture-frame{
+
+    width:min(92%,760px);
+
+    height:min(38vh,340px);
+
+    min-height:180px;
+
+    margin:
+        10px
+        auto
+        20px;
+
+    padding:5px;
+
+    border:
+        4px
+        solid
+        var(--green);
+
+    border-radius:18px;
+
+    background:#000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    animation:
+        pictureFlash
+        .9s
+        infinite
+        alternate;
+}
+
+
+/* ==============================
+   PICTURE
+   ============================== */
+
+.instruction-picture{
+
+    display:block;
+
+    width:100%;
+    height:100%;
+
+    max-width:100%;
+    max-height:100%;
+
+    object-fit:contain;
+
+    object-position:center;
+
+    border-radius:10px;
+}
+
+
+/* ==============================
+   FLASHING PICTURE BORDER
+   ============================== */
+
+@keyframes pictureFlash{
+
+    0%{
+
+        border-color:#39ff14;
+
+        box-shadow:
+            0 0 5px #39ff14,
+            0 0 12px #39ff14;
+    }
+
+    100%{
+
+        border-color:#ffffff;
+
+        box-shadow:
+            0 0 12px #39ff14,
+            0 0 30px #39ff14,
+            0 0 55px #39ff14;
+    }
+}
+
+
+/* ==============================
+   ICON
+   ============================== */
+
+.icon{
+
+    font-size:70px;
+
+    line-height:1;
+
+    display:block;
+
+    margin-bottom:10px;
+}
+
+
+/* ==============================
+   SLIDE TITLE
+   ============================== */
+
+.title{
+
+    width:100%;
+
+    max-width:100%;
+
+    color:var(--green);
+
+    font-size:
+        clamp(
+            28px,
+            7vw,
+            58px
+        );
+
+    line-height:1.05;
+
+    font-weight:1000;
+
+    text-transform:uppercase;
+
+    text-shadow:
+        0 0 12px #0f0;
+
+    margin:
+        0
+        auto
+        18px;
+
+    text-align:center;
+
+    overflow-wrap:anywhere;
+
+    word-break:normal;
+}
+
+
+/* ==============================
+   READ ALONG
+   ============================== */
+
+.readalong{
+
+    width:100%;
+
+    max-width:800px;
+
+    margin:0 auto;
+
+    padding:
+        0
+        8px;
+
+    font-size:
+        clamp(
+            19px,
+            4.3vw,
+            34px
+        );
+
+    line-height:1.4;
+
+    font-weight:900;
+
+    text-align:center;
+
+    white-space:normal;
+
+    overflow-wrap:anywhere;
+
+    word-wrap:break-word;
+
+    word-break:normal;
+}
+
+
+.readalong span{
+
+    display:inline;
+
+    transition:
+        color .08s ease,
+        background .08s ease,
+        text-shadow .08s ease;
+}
+
+
+.readalong span.active{
+
+    color:#000;
+
+    background:var(--green);
+
+    border-radius:4px;
+
+    padding:
+        0
+        2px;
+
+    text-shadow:none;
+
+    box-shadow:
+        0 0 12px var(--green);
+}
+
+
+/* ==============================
+   HIGHLIGHT
+   ============================== */
+
+.highlight{
+
+    display:block;
+
+    width:fit-content;
+
+    max-width:100%;
+
+    margin:
+        16px
+        auto;
+
+    padding:
+        10px
+        18px;
+
+    border:
+        3px
+        solid
+        var(--green);
+
+    border-radius:15px;
+
+    color:#000;
+
+    background:var(--green);
+
+    font-size:
+        clamp(
+            20px,
+            5vw,
+            40px
+        );
+
+    line-height:1.15;
+
+    font-weight:1000;
+
+    text-align:center;
+
+    overflow-wrap:anywhere;
+
+    word-break:normal;
+
+    animation:
+        glow
+        1s
+        infinite
+        alternate;
+}
+
+
+@keyframes glow{
+
+    from{
+
+        box-shadow:
+            0 0 5px var(--green);
+    }
+
+    to{
+
+        box-shadow:
+            0 0 25px var(--green),
+            0 0 45px #0f0;
+    }
+}
+
+
+/* ==============================
+   BALANCE DEMO
+   ============================== */
+
+.balanceBox{
+
+    width:100%;
+
+    max-width:700px;
+
+    margin:
+        14px
+        auto
+        4px;
+
+    padding:
+        10px
+        14px;
+
+    border:
+        3px
+        solid
+        var(--green);
+
+    border-radius:18px;
+
+    background:#000800;
+
+    box-shadow:
+        0 0 15px var(--green),
+        inset 0 0 18px #0b280b;
+
+    overflow:hidden;
+}
+
+
+.balanceLabel{
+
+    width:100%;
+
+    font-size:
+        clamp(
+            13px,
+            3vw,
+            20px
+        );
+
+    line-height:1.2;
+
+    font-weight:1000;
+
+    color:var(--green);
+
+    letter-spacing:2px;
+
+    text-align:center;
+
+    overflow-wrap:anywhere;
+}
+
+
+.balance{
+
+    width:100%;
+
+    font-size:
+        clamp(
+            42px,
+            10vw,
+            78px
+        );
+
+    line-height:1;
+
+    font-weight:1000;
+
+    color:var(--green);
+
+    text-align:center;
+
+    text-shadow:
+        0 0 8px var(--green),
+        0 0 25px #0f0;
+
+    margin-top:5px;
+}
+
+
+.balanceArrow{
+
+    width:100%;
+
+    font-size:
+        clamp(
+            17px,
+            4vw,
+            28px
+        );
+
+    line-height:1.2;
+
+    font-weight:1000;
+
+    text-align:center;
+
+    margin-top:6px;
+
+    overflow-wrap:anywhere;
+}
+
+
+/* ==============================
+   CONTROLS
+   ============================== */
+
+.controls{
+
+    position:absolute;
+
+    bottom:12px;
+
+    left:10px;
+    right:10px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    max-width:100%;
+}
+
+
+button{
+
+    border:
+        3px
+        solid
+        var(--green);
+
+    border-radius:14px;
+
+    background:#071007;
+
+    color:var(--green);
+
+    font-size:
+        clamp(
+            16px,
+            3.5vw,
+            25px
+        );
+
+    font-weight:1000;
+
+    padding:
+        10px
+        18px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 10px #0f0;
+
+    white-space:nowrap;
+}
+
+
+button:hover{
+
+    background:var(--green);
+
+    color:#000;
+}
+
+
+/* ==============================
+   STATUS
+   ============================== */
+
+.status{
+
+    width:100%;
+
+    max-width:100%;
+
+    margin-top:10px;
+
+    font-size:17px;
+
+    line-height:1.2;
+
+    font-weight:800;
+
+    text-align:center;
+
+    overflow-wrap:anywhere;
+}
+
+
+/* ==============================
+   PROGRESS BAR
+   ============================== */
+
+.bar{
+
+    width:100%;
+
+    height:8px;
+
+    margin-top:7px;
+
+    border-radius:10px;
+
+    background:#153315;
+
+    overflow:hidden;
+}
+
+
+.progress{
+
+    height:100%;
+
+    width:12.5%;
+
+    background:var(--green);
+
+    box-shadow:
+        0 0 12px var(--green);
+
+    transition:
+        width
+        .25s
+        ease;
+}
+
+
+/* ==============================
+   DISCLAIMER
+   ============================== */
+
+.disclaimer{
+
+    width:100%;
+
+    margin-top:12px;
+
+    font-size:12px;
+
+    line-height:1.3;
+
+    text-align:center;
+
+    opacity:.7;
+
+    overflow-wrap:anywhere;
+}
+
+
+/* ==============================
+   ANDROID / SMALL SCREENS
+   ============================== */
+
+@media(max-width:600px){
+
+    body{
+        padding:8px;
+    }
+
+    .app{
+        width:100%;
+    }
+
+    .screen{
+
+        min-height:650px;
+
+        padding:
+            22px
+            12px
+            105px;
+
+        border-width:3px;
+
+        border-radius:20px;
+    }
+
+
+    .slide{
+        max-width:100%;
+    }
+
+
+    .number{
+
+        width:62px;
+        height:62px;
+
+        font-size:38px;
+
+        margin-bottom:12px;
+    }
+
+
+    /* ANDROID PICTURE */
+
+    .instruction-picture-frame{
+
+        width:94%;
+
+        height:210px;
+
+        min-height:120px;
+
+        padding:4px;
+
+        border-width:3px;
+
+        border-radius:15px;
+
+        margin:
+            8px
+            auto
+            14px;
+    }
+
+
+    .instruction-picture{
+
+        width:100%;
+
+        height:100%;
+
+        max-width:100%;
+
+        max-height:100%;
+
+        object-fit:contain;
+    }
+
+
+    .icon{
+
+        font-size:54px;
+
+        margin-bottom:8px;
+    }
+
+
+    .title{
+
+        font-size:
+            clamp(
+                25px,
+                8vw,
+                42px
+            );
+
+        margin-bottom:14px;
+    }
+
+
+    .readalong{
+
+        max-width:100%;
+
+        padding:
+            0
+            4px;
+
+        font-size:
+            clamp(
+                18px,
+                5.2vw,
+                27px
+            );
+
+        line-height:1.42;
+    }
+
+
+    .highlight{
+
+        max-width:95%;
+
+        padding:
+            8px
+            12px;
+
+        font-size:
+            clamp(
+                18px,
+                5vw,
+                30px
+            );
+    }
+
+
+    .balanceBox{
+        max-width:95%;
+    }
+
+
+    .controls{
+
+        left:6px;
+        right:6px;
+
+        gap:5px;
+    }
+
+
+    button{
+
+        font-size:15px;
+
+        padding:
+            8px
+            10px;
+
+        border-width:2px;
+    }
+
+
+    .status{
+        font-size:14px;
+    }
+
+}
+
+
+/* ==============================
+   VERY SMALL PHONES
+   ============================== */
+
+@media(max-width:380px){
+
+    h1{
+        font-size:34px;
+    }
+
+    .subtitle{
+        font-size:19px;
+    }
+
+    .screen{
+
+        min-height:640px;
+
+        padding-left:8px;
+
+        padding-right:8px;
+    }
+
+
+    .instruction-picture-frame{
+
+        width:94%;
+
+        height:175px;
+    }
+
+
+    .title{
+        font-size:25px;
+    }
+
+
+    .readalong{
+
+        font-size:18px;
+
+        line-height:1.4;
+    }
+
+
+    .highlight{
+        font-size:17px;
+    }
+
+
+    button{
+
+        font-size:13px;
+
+        padding:
+            7px
+            8px;
+    }
+
+}
+
+
+/* ==============================
+   LANDSCAPE PHONES
+   ============================== */
+
+@media(
+    max-height:600px
+)
+and
+(
+    orientation:landscape
+){
+
+    body{
+        padding:8px;
+    }
+
+
+    .screen{
+
+        min-height:470px;
+
+        padding-top:15px;
+
+        padding-bottom:80px;
+    }
+
+
+    .number{
+
+        width:50px;
+        height:50px;
+
+        font-size:30px;
+
+        margin-bottom:7px;
+    }
+
+
+    .instruction-picture-frame{
+
+        height:140px;
+
+        min-height:90px;
+
+        margin:
+            5px
+            auto
+            8px;
+    }
+
+
+    .icon{
+        font-size:42px;
+    }
+
+
+    .title{
+
+        font-size:30px;
+
+        margin-bottom:8px;
+    }
+
+
+    .readalong{
+        font-size:19px;
+    }
+
+}
+
+
+/* ==============================
+   EXTRA LONG WORD PROTECTION
+   ============================== */
+
+#slide,
+#slide *,
+.status,
+.disclaimer{
+
+    max-width:100%;
+
+    overflow-wrap:anywhere;
+
+    word-wrap:break-word;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+<h1>
+    🍕 PIZZA COIN 🍕
+</h1>
+
+
+<div class="subtitle">
+    HOW IT WORKS
+</div>
+
+
+<div class="screen">
+
+
+<div
+    id="slide"
+    class="slide">
+</div>
+
+
+<div class="controls">
+
+
+<button id="reverse">
+    ⏪ REVERSE
+</button>
+
+
+<button id="play">
+    ▶ PLAY
+</button>
+
+
+<button id="forward">
+    FORWARD ⏩
+</button>
+
+
+</div>
+
+
+</div>
+
+
+<div
+    class="status"
+    id="status">
+</div>
+
+
+<div class="bar">
+
+<div
+    class="progress"
+    id="progress">
+</div>
+
+</div>
+
+
+<div class="disclaimer">
+
+Animation loops continuously •
+Each step displays for 2 seconds
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+/* =========================================================
+   8 CAROUSEL FRAMES
+   EXACTLY ONE PNG PICTURE PER FRAME
+   ========================================================= */
+
+const slides = [
+
+    {
+        n:1,
+        image:"one.png",
+        icon:"📧✅",
+        title:"ENTER EMAIL",
+        text:
+            "Enter your email address to get started."
+    },
+
+
+    {
+        n:2,
+        image:"two.png",
+        icon:"🔷👛✅",
+        title:"ENTER POLYGON 0x....",
+        text:
+            "Enter the Polygon receive address from your favorite crypto wallet."
+    },
+
+
+    {
+        n:3,
+        image:"three.png",
+        icon:"🆓📱✅",
+        title:"NO WALLET?",
+        text:
+            "If you do not have a wallet, click here to download one.",
+        extra:
+            "10 SECONDS • 100% FREE"
+    },
+
+
+    {
+        n:4,
+        image:"four.png",
+        icon:"💵🍕",
+        title:"CHOOSE PURCHASE AMOUNT",
+        text:
+            "Only $1 minimum.",
+        extra:
+            "$20+ • FREE PIZZA GIFT CARD"
+    },
+
+
+    {
+        n:5,
+        image:"five.png",
+        icon:"🎉📧🍕",
+        title:"SUCCESS EMAIL",
+        text:
+            "You receive Pizza Coin to your provided 0x.... address.",
+        extra:
+            "+ ELECTRONIC PIZZA GIFT CARD TO YOUR EMAIL"
+    },
+
+
+    {
+        n:6,
+        image:"six.png",
+        icon:"📈🪙",
+        title:"BONUS ALGORITHM",
+        text:
+            "The algorithm continues to deposit to your provided 0x.... address.",
+        extra:
+            "CHECK YOUR BALANCE",
+        balance:true
+    },
+
+
+    {
+        n:7,
+        image:"seven.png",
+        icon:"💵🚀😃",
+        title:"HURRI ALGORITHM",
+        text:
+            "Larger amounts are distributed to early registrants.",
+        extra:
+            "EARLIER REGISTRATION • LARGER ALLOCATIONS",
+        balance:true
+    },
+
+
+    {
+        n:8,
+        image:"eight.png",
+        icon:"🍕🎉✅",
+        title:"COMPLETE",
+        text:
+            "Your Pizza Coin process is complete."
+    }
+
+];
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+let index = 0;
+
+let timer = null;
+
+let playing = true;
+
+let readTimer = null;
+
+let balanceTimer = null;
+
+
+/* =========================================================
+   LETTER-BY-LETTER READ ALONG
+   ========================================================= */
+
+function createReadAlong(text){
+
+    return text
+
+        .split("")
+
+        .map((letter,i)=>{
+
+            if(letter === " "){
+
+                return `
+                    <span data-letter="${i}">
+                        &nbsp;
+                    </span>
+                `;
+
+            }
+
+
+            return `
+                <span data-letter="${i}">
+                    ${letter}
+                </span>
+            `;
+
+        })
+
+        .join("");
+}
+
+
+/* =========================================================
+   START READ ALONG
+   ========================================================= */
+
+function startReadAlong(){
+
+    clearInterval(readTimer);
+
+
+    const letters =
+        document.querySelectorAll(
+            ".readalong span"
+        );
+
+
+    if(!letters.length){
+
+        return;
+
+    }
+
+
+    let position = 0;
+
+
+    readTimer =
+        setInterval(()=>{
+
+
+            letters.forEach(letter=>{
+
+                letter.classList.remove(
+                    "active"
+                );
+
+            });
+
+
+            if(position < letters.length){
+
+                letters[position]
+                    .classList
+                    .add("active");
+
+                position++;
+
+            }
+
+
+            else{
+
+                clearInterval(
+                    readTimer
+                );
+
+            }
+
+
+        },35);
+}
+
+
+/* =========================================================
+   FAST 1 TO 4000 DEMO BALANCE
+   ========================================================= */
+
+function startBalanceAnimation(){
+
+    clearInterval(balanceTimer);
+
+
+    const balance =
+        document.getElementById(
+            "balanceNumber"
+        );
+
+
+    if(!balance){
+
+        return;
+
+    }
+
+
+    let amount = 1;
+
+
+    balance.textContent =
+        amount.toLocaleString();
+
+
+    balanceTimer =
+        setInterval(()=>{
+
+
+            if(amount < 100){
+
+                amount += 5;
+
+            }
+
+
+            else if(amount < 500){
+
+                amount += 25;
+
+            }
+
+
+            else if(amount < 1500){
+
+                amount += 75;
+
+            }
+
+
+            else if(amount < 3000){
+
+                amount += 150;
+
+            }
+
+
+            else{
+
+                amount += 250;
+
+            }
+
+
+            if(amount >= 4000){
+
+                amount = 4000;
+
+
+                balance.textContent =
+                    amount.toLocaleString();
+
+
+                clearInterval(
+                    balanceTimer
+                );
+
+
+                return;
+
+            }
+
+
+            balance.textContent =
+                amount.toLocaleString();
+
+
+        },18);
+}
+
+
+/* =========================================================
+   RENDER
+   ========================================================= */
+
+function render(){
+
+
+    clearInterval(readTimer);
+
+    clearInterval(balanceTimer);
+
+
+    const s = slides[index];
+
+
+    let balanceHTML = "";
+
+
+/* ==========================
+   BALANCE BOX
+   ========================== */
+
+    if(s.balance){
+
+        balanceHTML = `
+
+            <div class="balanceBox">
+
+                <div class="balanceLabel">
+
+                    DEMO BALANCE ANIMATION
+
+                </div>
+
+
+                <div class="balance">
+
+                    <span id="balanceNumber">
+
+                        1
+
+                    </span>
+
+                </div>
+
+
+                <div class="balanceArrow">
+
+                    1 ➜ 4,000 FAST 🚀
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
+/* ==========================
+   ONE PNG PICTURE PER FRAME
+   ========================== */
+
+    let pictureHTML = "";
+
+
+    if(s.image){
+
+        pictureHTML = `
+
+            <div
+                class="instruction-picture-frame">
+
+                <img
+                    class="instruction-picture"
+                    src="${s.image}"
+                    alt="Instruction ${s.n}"
+                    loading="eager"
+                >
+
+            </div>
+
+        `;
+
+    }
+
+
+/* ==========================
+   BUILD SLIDE
+   ========================== */
+
+    document.getElementById(
+        "slide"
+    ).innerHTML = `
+
+        <div class="number">
+
+            ${s.n}
+
+        </div>
+
+
+        ${pictureHTML}
+
+
+        <span class="icon">
+
+            ${s.icon}
+
+        </span>
+
+
+        <div class="title">
+
+            ${s.title}
+
+        </div>
+
+
+        <div class="readalong">
+
+            ${createReadAlong(s.text)}
+
+        </div>
+
+
+        ${
+            s.extra
+
+            ?
+
+            `
+
+            <div class="highlight">
+
+                ${s.extra}
+
+            </div>
+
+            `
+
+            :
+
+            ""
+        }
+
+
+        ${balanceHTML}
+
+    `;
+
+
+/* ==========================
+   STATUS
+   ========================== */
+
+    document.getElementById(
+        "status"
+    ).textContent =
+
+        `STEP ${s.n} OF ${slides.length} • 2 SECONDS EACH`;
+
+
+/* ==========================
+   PROGRESS
+   ========================== */
+
+    document.getElementById(
+        "progress"
+    ).style.width =
+
+        `${((index + 1) / slides.length) * 100}%`;
+
+
+/* ==========================
+   START ANIMATIONS
+   ========================== */
+
+    startReadAlong();
+
+
+    if(s.balance){
+
+        startBalanceAnimation();
+
+    }
+
+}
+
+
+/* =========================================================
+   FORWARD
+   ========================================================= */
+
+function next(){
+
+    index =
+        (index + 1)
+        %
+        slides.length;
+
+    render();
+
+}
+
+
+/* =========================================================
+   REVERSE
+   ========================================================= */
+
+function previous(){
+
+    index =
+        (index - 1 + slides.length)
+        %
+        slides.length;
+
+    render();
+
+}
+
+
+/* =========================================================
+   PLAY LOOP
+   ========================================================= */
+
+function startLoop(){
+
+    clearInterval(timer);
+
+
+    timer =
+        setInterval(
+            next,
+            2000
+        );
+
+
+    playing = true;
+
+
+    document.getElementById(
+        "play"
+    ).textContent =
+        "⏸ PAUSE";
+
+}
+
+
+/* =========================================================
+   PAUSE LOOP
+   ========================================================= */
+
+function pauseLoop(){
+
+    clearInterval(timer);
+
+
+    timer = null;
+
+
+    playing = false;
+
+
+    document.getElementById(
+        "play"
+    ).textContent =
+        "▶ PLAY";
+
+}
+
+
+/* =========================================================
+   FORWARD BUTTON
+   ========================================================= */
+
+document.getElementById(
+    "forward"
+).onclick = ()=>{
+
+
+    next();
+
+
+    if(playing){
+
+        startLoop();
+
+    }
+
+};
+
+
+/* =========================================================
+   REVERSE BUTTON
+   ========================================================= */
+
+document.getElementById(
+    "reverse"
+).onclick = ()=>{
+
+
+    previous();
+
+
+    if(playing){
+
+        startLoop();
+
+    }
+
+};
+
+
+/* =========================================================
+   PLAY / PAUSE
+   ========================================================= */
+
+document.getElementById(
+    "play"
+).onclick = ()=>{
+
+
+    if(playing){
+
+        pauseLoop();
+
+    }
+
+
+    else{
+
+        startLoop();
+
+    }
+
+};
+
+
+/* =========================================================
+   START
+   ========================================================= */
+
+render();
+
+startLoop();
+
+
+</script>
+
+</body>
+
+</html>
